@@ -5,7 +5,7 @@ const port = 8080;
 app.get("/", async (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.status(200);
-  res.send("<h1>Hello World</h1>");
+  res.send("<h1>Hello World.</h1>");
 });
 
 app.listen(port, () => {
