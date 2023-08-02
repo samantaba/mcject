@@ -1,0 +1,10 @@
+Create an RDS instance in the private subnet and security group
+
+Create a secret in Secrets Manager to store the database password
+
+Create an instance profile to allow the access to a specific bucket in S3 to pull down container configurations, and to a specific database password secret in Secrets Manager
+
+The EC2 start up script updates the system, installs Docker (if not already installed), starts the Docker service, logs into the ECR registry, pulls the Docker image from the specified repository, and then runs the Docker container. The ECR policy allows the EC2 instance to fetch images from a specific repository in ECR
+
+EC2 machines are launched with auto scaling and in a target group. Depending on the app, session stickiness can be configured on the load balancer. Add relevant rules based on the HTTP request which dictates to which target group a listener routes. Either a start up script is used for frying or a custom baked image is used.
+Create an Application Load Balancer (ALB) in front of EC2 instances to redirect traffic on 443. 
